@@ -17,3 +17,7 @@ vendor/
 
 # VSCode Remote Container
 .devcontainer/
+
+
+# Firebase Token folder
+.secrets/
