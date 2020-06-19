@@ -2,16 +2,25 @@ package main
 
 import (
 	"fmt"
-	// "runtime"
-	// "github.com/carlescere/scheduler"
+	"os"
+	"runtime"
+
+	"github.com/carlescere/scheduler"
 )
 
+var count = 0
+
 func main() {
-	// scheduler.Every(5).Seconds().Run(printSuccess)
-	// runtime.Goexit()
-	fmt.Println("Hello, Docker!")
+	scheduler.Every(3).Seconds().Run(printSuccess)
+	runtime.Goexit()
 }
 
 func printSuccess() {
-	fmt.Printf("success!! \n")
+	count++
+	if count > 5 {
+		fmt.Println("finish...")
+		os.Exit(0)
+	} else {
+		fmt.Println("success!!")
+	}
 }
